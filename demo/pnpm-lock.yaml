@@ -24,8 +24,8 @@ importers:
         specifier: ^5.7.2
         version: 5.8.3
       viem:
-        specifier: ^2.21.53
-        version: 2.28.1(typescript@5.8.3)
+        specifier: ^2.30.6
+        version: 2.38.5(typescript@5.8.3)
 
 packages:
 
@@ -107,31 +107,35 @@ packages:
   '@ethersproject/wordlists@5.8.0':
     resolution: {integrity: sha512-2df9bbXicZws2Sb5S6ET493uJ0Z84Fjr3pC4tu/qlnZERibZCeUVuqdtt+7Tv9xxhUxHoIekIA7avrKUWHrezg==}
 
-  '@noble/curves@1.8.2':
-    resolution: {integrity: sha512-vnI7V6lFNe0tLAuJMu+2sX+FcL14TaCWy1qiczg1VwRmPrpQCdq5ESXQMqUc2tluRNf6irBXrWbl1mGN8uaU/g==}
+  '@noble/ciphers@1.3.0':
+    resolution: {integrity: sha512-2I0gnIVPtfnMw9ee9h1dJG7tp81+8Ob3OJb3Mv37rx5L40/b0i7djjCVvGOVqc9AEIQyvyu1i6ypKdFw8R8gQw==}
     engines: {node: ^14.21.3 || >=16}
 
-  '@noble/hashes@1.7.2':
-    resolution: {integrity: sha512-biZ0NUSxyjLLqo6KxEJ1b+C2NAx0wtDoFvCaXHGgUkeHzf3Xc1xKumFKREuT7f7DARNZ/slvYUwFG6B0f2b6hQ==}
+  '@noble/curves@1.9.1':
+    resolution: {integrity: sha512-k11yZxZg+t+gWvBbIswW0yoJlu8cHOC7dhunwOzoWH/mXGBiYyR4YY6hAEK/3EUs4UpB8la1RfdRpeGsFHkWsA==}
+    engines: {node: ^14.21.3 || >=16}
+
+  '@noble/hashes@1.8.0':
+    resolution: {integrity: sha512-jCs9ldd7NwzpgXDIf6P3+NrHh9/sD6CQdxHyjQI+h/6rDNo88ypBxxz45UDuZHz9r3tNz7N/VInSVoVdtXEI4A==}
     engines: {node: ^14.21.3 || >=16}
 
   '@scure/base@1.2.5':
     resolution: {integrity: sha512-9rE6EOVeIQzt5TSu4v+K523F8u6DhBsoZWPGKlnCshhlDhy0kJzUX4V+tr2dWmzF1GdekvThABoEQBGBQI7xZw==}
 
-  '@scure/bip32@1.6.2':
-    resolution: {integrity: sha512-t96EPDMbtGgtb7onKKqxRLfE5g05k7uHnHRM2xdE6BP/ZmxaLtPek4J4KfVn/90IQNrU1IOAqMgiDtUdtbe3nw==}
+  '@scure/bip32@1.7.0':
+    resolution: {integrity: sha512-E4FFX/N3f4B80AKWp5dP6ow+flD1LQZo/w8UnLGYZO674jS6YnYeepycOOksv+vLPSpgN35wgKgy+ybfTb2SMw==}
 
-  '@scure/bip39@1.5.4':
-    resolution: {integrity: sha512-TFM4ni0vKvCfBpohoh+/lY05i9gRbSwXWngAsF4CABQxoaOHijxuaZ2R6cStDQ5CHtHO9aGJTr4ksVJASRRyMA==}
+  '@scure/bip39@1.6.0':
+    resolution: {integrity: sha512-+lF0BbLiJNwVlev4eKelw1WWLaiKXw7sSl8T6FvBlWkdX+94aGJ4o8XjUdlyhTCjd8c+B3KT3JfS8P0bLRNU6A==}
 
   '@types/node@22.15.3':
     resolution: {integrity: sha512-lX7HFZeHf4QG/J7tBZqrCAXwz9J5RD56Y6MpP0eJkka8p+K0RY/yBTW7CYFJ4VGCclxqOLKmiGP5juQc6MKgcw==}
 
-  abitype@1.0.8:
-    resolution: {integrity: sha512-ZeiI6h3GnW06uYDLx0etQtX/p8E24UaHHBj57RSjK7YBFe7iuVn07EDpOeP451D06sF27VOz9JJPlIKJmXgkEg==}
+  abitype@1.1.0:
+    resolution: {integrity: sha512-6Vh4HcRxNMLA0puzPjM5GBgT4aAcFGKZzSgAXvuZ27shJP6NEpielTuqbBmZILR5/xd0PizkBGy5hReKz9jl5A==}
     peerDependencies:
       typescript: '>=5.0.4'
-      zod: ^3 >=3.22.0
+      zod: ^3.22.0 || ^4.0.0
     peerDependenciesMeta:
       typescript:
         optional: true
@@ -169,8 +173,8 @@ packages:
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
 
-  isows@1.0.6:
-    resolution: {integrity: sha512-lPHCayd40oW98/I0uvgaHKWCSvkzY27LjWLbtzOm64yQ+G3Q5npjjbdppU65iZXkK1Zt+kH9pfegli0AYfwYYw==}
+  isows@1.0.7:
+    resolution: {integrity: sha512-I1fSfDCZL5P0v33sVqeTDSpcstAg/N+wF5HS033mogOVIp4B+oHC7oOCsA3axAbBSGTJ8QubbNmnIRN/h8U7hg==}
     peerDependencies:
       ws: '*'
 
@@ -183,8 +187,8 @@ packages:
   minimalistic-crypto-utils@1.0.1:
     resolution: {integrity: sha512-JIYlbt6g8i5jKfJ3xz7rF0LXmv2TkDxBLUkiBeZ7bAx4GnnNMr8xFpGnOxn6GhTEHx3SjRrZEoU+j04prX1ktg==}
 
-  ox@0.6.9:
-    resolution: {integrity: sha512-wi5ShvzE4eOcTwQVsIPdFr+8ycyX+5le/96iAJutaZAvCes1J0+RvpEPg5QDPDiaR0XQQAvZVl7AwqQcINuUug==}
+  ox@0.9.6:
+    resolution: {integrity: sha512-8SuCbHPvv2eZLYXrNmC0EC12rdzXQLdhnOMlHDW2wiCPLxBrOOJwX5L5E61by+UjTPOryqQiRSnjIKCI+GykKg==}
     peerDependencies:
       typescript: '>=5.4.0'
     peerDependenciesMeta:
@@ -205,16 +209,16 @@ packages:
   undici-types@6.21.0:
     resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
 
-  viem@2.28.1:
-    resolution: {integrity: sha512-7eqGfxAPlMW9u9aE3SMEFPzNYqqU7uFLKUQyd/GwccyW4OAdq7VqJkPIpdULUePN9m3XmfBunA9mswYFp9sUuQ==}
+  viem@2.38.5:
+    resolution: {integrity: sha512-EU2olUnWd5kBK1t3BicwaamPHGUANRYetoDLSVzDy7XQ8o8UswItnkQbufe3xTcdRCtb2JYMwjlgHZZ7fUoLdA==}
     peerDependencies:
       typescript: '>=5.0.4'
     peerDependenciesMeta:
       typescript:
         optional: true
 
-  ws@8.18.1:
-    resolution: {integrity: sha512-RKW2aJZMXeMxVpnZ6bck+RswznaxmzdULiBr6KY7XkTnW8uvt0iT9H5DkHUChXrc+uurzwa0rVI16n/Xzjdz1w==}
+  ws@8.18.3:
+    resolution: {integrity: sha512-PEIGCY5tSlUt50cqyMXfCzX+oOPqN0vuGqWzbcJ2xvnkzkq46oOpz7dQaTDBdfICb4N14+GARUDw2XV2N4tvzg==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
@@ -418,30 +422,32 @@ snapshots:
       '@ethersproject/properties': 5.8.0
       '@ethersproject/strings': 5.8.0
 
-  '@noble/curves@1.8.2':
-    dependencies:
-      '@noble/hashes': 1.7.2
+  '@noble/ciphers@1.3.0': {}
 
-  '@noble/hashes@1.7.2': {}
+  '@noble/curves@1.9.1':
+    dependencies:
+      '@noble/hashes': 1.8.0
+
+  '@noble/hashes@1.8.0': {}
 
   '@scure/base@1.2.5': {}
 
-  '@scure/bip32@1.6.2':
+  '@scure/bip32@1.7.0':
     dependencies:
-      '@noble/curves': 1.8.2
-      '@noble/hashes': 1.7.2
+      '@noble/curves': 1.9.1
+      '@noble/hashes': 1.8.0
       '@scure/base': 1.2.5
 
-  '@scure/bip39@1.5.4':
+  '@scure/bip39@1.6.0':
     dependencies:
-      '@noble/hashes': 1.7.2
+      '@noble/hashes': 1.8.0
       '@scure/base': 1.2.5
 
   '@types/node@22.15.3':
     dependencies:
       undici-types: 6.21.0
 
-  abitype@1.0.8(typescript@5.8.3):
+  abitype@1.1.0(typescript@5.8.3):
     optionalDependencies:
       typescript: 5.8.3
 
@@ -480,9 +486,9 @@ snapshots:
 
   inherits@2.0.4: {}
 
-  isows@1.0.6(ws@8.18.1):
+  isows@1.0.7(ws@8.18.3):
     dependencies:
-      ws: 8.18.1
+      ws: 8.18.3
 
   js-sha3@0.8.0: {}
 
@@ -490,14 +496,15 @@ snapshots:
 
   minimalistic-crypto-utils@1.0.1: {}
 
-  ox@0.6.9(typescript@5.8.3):
+  ox@0.9.6(typescript@5.8.3):
     dependencies:
       '@adraffy/ens-normalize': 1.11.0
-      '@noble/curves': 1.8.2
-      '@noble/hashes': 1.7.2
-      '@scure/bip32': 1.6.2
-      '@scure/bip39': 1.5.4
-      abitype: 1.0.8(typescript@5.8.3)
+      '@noble/ciphers': 1.3.0
+      '@noble/curves': 1.9.1
+      '@noble/hashes': 1.8.0
+      '@scure/bip32': 1.7.0
+      '@scure/bip39': 1.6.0
+      abitype: 1.1.0(typescript@5.8.3)
       eventemitter3: 5.0.1
     optionalDependencies:
       typescript: 5.8.3
@@ -512,16 +519,16 @@ snapshots:
 
   undici-types@6.21.0: {}
 
-  viem@2.28.1(typescript@5.8.3):
+  viem@2.38.5(typescript@5.8.3):
     dependencies:
-      '@noble/curves': 1.8.2
-      '@noble/hashes': 1.7.2
-      '@scure/bip32': 1.6.2
-      '@scure/bip39': 1.5.4
-      abitype: 1.0.8(typescript@5.8.3)
-      isows: 1.0.6(ws@8.18.1)
-      ox: 0.6.9(typescript@5.8.3)
-      ws: 8.18.1
+      '@noble/curves': 1.9.1
+      '@noble/hashes': 1.8.0
+      '@scure/bip32': 1.7.0
+      '@scure/bip39': 1.6.0
+      abitype: 1.1.0(typescript@5.8.3)
+      isows: 1.0.7(ws@8.18.3)
+      ox: 0.9.6(typescript@5.8.3)
+      ws: 8.18.3
     optionalDependencies:
       typescript: 5.8.3
     transitivePeerDependencies:
@@ -529,4 +536,4 @@ snapshots:
       - utf-8-validate
       - zod
 
-  ws@8.18.1: {}
+  ws@8.18.3: {}

@@ -6,7 +6,7 @@ import { foundry } from 'viem/chains';
 import Counter_ABI from './contracts/Counter.json';
 
 // Counter 合约地址
-const COUNTER_ADDRESS = "0x7148E9A2d539A99a66f1bd591E4E20cA35a08eD5";
+const COUNTER_ADDRESS = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
 
 export default function Home() {
   const [balance, setBalance] = useState<string>('0');
@@ -127,6 +127,14 @@ export default function Home() {
             className="block w-full bg-purple-500 text-white py-2 px-4 rounded hover:bg-purple-600 transition-colors text-center"
           >
             前往 SIWE 登录演示
+          </a>
+        </div>
+           <div className="mb-4">
+          <a
+            href="/tokenbank"
+            className="block w-full bg-purple-500 text-white py-2 px-4 rounded hover:bg-purple-600 transition-colors text-center"
+          >
+            前往 TokenBank 登录演示
           </a>
         </div>
         

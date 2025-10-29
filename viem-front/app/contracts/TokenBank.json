@@ -3,7 +3,7 @@
     "type": "constructor",
     "inputs": [
       {
-        "name": "_token",
+        "name": "token_",
         "type": "address",
         "internalType": "address"
       }
@@ -22,7 +22,7 @@
     ],
     "outputs": [
       {
-        "name": "",
+        "name": "balance",
         "type": "uint256",
         "internalType": "uint256"
       }
@@ -41,25 +41,6 @@
     ],
     "outputs": [],
     "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "deposits",
-    "inputs": [
-      {
-        "name": "",
-        "type": "address",
-        "internalType": "address"
-      }
-    ],
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
-    ],
-    "stateMutability": "view"
   },
   {
     "type": "function",
@@ -96,7 +77,7 @@
   },
   {
     "type": "function",
-    "name": "totalDeposits",
+    "name": "totalBalance",
     "inputs": [],
     "outputs": [
       {
@@ -192,6 +173,11 @@
   },
   {
     "type": "error",
+    "name": "InsufficientBalance",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "OwnableInvalidOwner",
     "inputs": [
       {
@@ -211,5 +197,21 @@
         "internalType": "address"
       }
     ]
+  },
+  {
+    "type": "error",
+    "name": "SafeERC20FailedOperation",
+    "inputs": [
+      {
+        "name": "token",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ZeroAmount",
+    "inputs": []
   }
 ]

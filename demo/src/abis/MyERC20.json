@@ -3,14 +3,9 @@
     "type": "constructor",
     "inputs": [
       {
-        "name": "name",
-        "type": "string",
-        "internalType": "string"
-      },
-      {
-        "name": "symbol",
-        "type": "string",
-        "internalType": "string"
+        "name": "initialSupply",
+        "type": "uint256",
+        "internalType": "uint256"
       }
     ],
     "stateMutability": "nonpayable"
@@ -176,6 +171,35 @@
         "name": "value",
         "type": "uint256",
         "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "transferWithCallbackAndData",
+    "inputs": [
+      {
+        "name": "_to",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "data",
+        "type": "bytes",
+        "internalType": "bytes"
       }
     ],
     "outputs": [

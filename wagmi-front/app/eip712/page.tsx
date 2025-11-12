@@ -1,11 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { useAccount, useReadContract, useSignTypedData } from 'wagmi';
+import { useAccount, useReadContract, useSignTypedData, useChainId, useSwitchChain } from 'wagmi';
 import { parseEther, type Address } from 'viem';
 import { EIP712VerifierABI } from '../types/EIP712Verifier';
 
-const CONTRACT_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3' as Address;
+
+const CONTRACT_ADDRESS = '0xb9a66f027E159c88bC16657A47EB03Bc8448d3c4' as Address;
 
 export default function EIP712Demo() {
   const { address, isConnected } = useAccount();
@@ -15,6 +16,7 @@ export default function EIP712Demo() {
   const [verificationResult, setVerificationResult] = useState<boolean | null>(null);
   const [error, setError] = useState<string>('');
 
+  const chainId = useChainId();
   const { signTypedData, data: signature, isPending } = useSignTypedData();
 
   const { data: verifyResult, refetch: verifySignature } = useReadContract({
@@ -22,12 +24,12 @@ export default function EIP712Demo() {
     abi: EIP712VerifierABI,
     functionName: 'verify',
     args: [
-      address as Address,
       {
         to: toAddress as Address,
         value: parseEther(amount),
       },
       signature as `0x${string}`,
+      address as Address
     ],
     query: {
       enabled: false,
@@ -48,9 +50,9 @@ export default function EIP712Demo() {
     try {
       setError('');
       const domain = {
-        name: 'EIP712Verifier',
-        version: '1.0.0',
-        chainId: 31337,
+        name: 'EIP712Verifiier',
+        version: 'V1',
+        chainId: 11155111, // Sepolia chain ID
         verifyingContract: CONTRACT_ADDRESS,
       };
 
@@ -159,6 +161,13 @@ export default function EIP712Demo() {
               </p>
             </div>
           )}
+          {
+            chainId && (<div className="mt-4">
+              <h2 className="font-bold">当前 Chain ID:</h2>
+              <p>{chainId}</p>
+            </div>
+          )
+          }
         </div>
       )}
     </div>

@@ -93,13 +93,36 @@
   },
   {
     "type": "function",
-    "name": "verify",
+    "name": "sendByEIP712Signature",
     "inputs": [
       {
         "name": "signer",
         "type": "address",
         "internalType": "address"
       },
+      {
+        "name": "to",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "value",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "signature",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "verify",
+    "inputs": [
       {
         "name": "send",
         "type": "tuple",
@@ -121,6 +144,11 @@
         "name": "signature",
         "type": "bytes",
         "internalType": "bytes"
+      },
+      {
+        "name": "signer",
+        "type": "address",
+        "internalType": "address"
       }
     ],
     "outputs": [

@@ -25,8 +25,8 @@ import permitTokenAbi from '../contracts/PermitToken.json';
 import bankAbi from '../contracts/PermitTokenBank.json';
 
 // ===== Config =====
-const PERMIT_TOKEN_ADDRESS = '0x042eB0c69FC25678B0d399984c17959875f7018c' as Address;
-const BANK_CONTRACT_ADDRESS = '0xA09A259Bd1516E1848337A592f19Ba08870f8FD2' as Address;
+const PERMIT_TOKEN_ADDRESS = '0x2eb6474FcDe25b1382f44972a29cF385d0CaC57D' as Address;
+const BANK_CONTRACT_ADDRESS = '0xeb61478CE14c66056f1e22d5836685582ac85449' as Address;
 const EXPECTED_CHAIN_ID: number | undefined = 11155111;
 
 // ===== Helpers =====
@@ -165,7 +165,14 @@ export default function PermitTokenPage() {
   const canDeposit =
     baseGuard &&
     !!depositAmountBigInt &&
-    !depositAmountError;
+    !depositAmountError &&
+    tokenName !== undefined &&
+    tokenSymbol !== undefined &&
+    tokenDecimalsData !== undefined &&
+    publicClient !== undefined;
+
+  // Ensure publicClient is defined before using it in signPermit
+  const isPublicClientAvailable = publicClient !== undefined;
 
   // ===== Effects =====
   const refetchAll = () => {
@@ -195,16 +202,30 @@ export default function PermitTokenPage() {
 
   // ===== Actions =====
   const signPermit = async (value: bigint) => {
+    // Ensure publicClient is defined before proceeding
+    if (!publicClient) {
+      throw new Error('Public client is not available.');
+    }
+
     // 最新 nonce
     const latest = await refetchNonces();
     const nonce = (latest.data as bigint) ?? (nonces as bigint) ?? 0n;
     const nowSec = Math.floor(Date.now() / 1000);
+    // Ensure deadline is a bigint
     const deadline = BigInt(nowSec + 60 * 20); // 20 分钟
+
+    // Use the actual tokenName from the contract, not a hardcoded string
+    const domainName = tokenName as string;
+
+    // Ensure publicClient is defined before proceeding
+    if (!publicClient) {
+      throw new Error('Public client is not available.');
+    }
 
     // 用链上 name、当前链 ID、合约地址构造 domain
     const currentChainId = await publicClient.getChainId();
     const domain = {
-      name: (tokenName as string) || 'PermitToken',
+      name: domainName, // Use the actual tokenName
       version: '1',
       chainId: currentChainId,
       verifyingContract: PERMIT_TOKEN_ADDRESS,
@@ -250,13 +271,33 @@ export default function PermitTokenPage() {
       throw new Error('Local signature verification failed: signer != owner (ERC2612InvalidSigner)');
     }
 
-    return { signature, deadline };
+    return { signature, deadline, domain, message, types }; // Return domain, message, and types as well
   };
 
   const handleDepositWithPermit = async () => {
-    if (!canDeposit || !depositAmountBigInt) return;
+    if (!canDeposit) return; // Ensure all conditions are met before proceeding
+
+    // Ensure depositAmountBigInt is defined before proceeding
+    const amountToDeposit = depositAmountBigInt;
+    if (!amountToDeposit) {
+      // This case should ideally be caught by canDeposit, but as a safeguard:
+      alert('Invalid deposit amount.');
+      return;
+    }
+
+    // Log deposit amount details for debugging
+    console.log('Deposit Amount (string):', depositAmount);
+    console.log('Token Decimals:', decimals);
+    console.log('Deposit Amount (bigint):', amountToDeposit);
+
     try {
-      const { signature, deadline } = await signPermit(depositAmountBigInt);
+      // Call signPermit only if amountToDeposit is valid
+      const { signature, deadline, domain, message, types } = await signPermit(amountToDeposit); // Destructure all returned values
+      console.log('Full signature:', signature); // Log the full signature for debugging
+      console.log('EIP-712 Domain:', domain);
+      console.log('EIP-712 Message:', message);
+      console.log('EIP-712 Types:', types);
+
       const { v, r, s } = splitSig(signature);
 
       // 先 simulate，获取正确 gas 等参数
@@ -310,6 +351,8 @@ export default function PermitTokenPage() {
               <div className="text-base font-medium">
                 {(tokenName as string) || '—'} {tokenSymbol ? `(${tokenSymbol})` : ''}
               </div>
+              {nonces !== undefined ? `Nonce: ${nonces}` : 'Nonce: —'}
+              
             </div>
             <div className="rounded-2xl border border-gray-200 p-4">
               <div className="text-xs text-gray-500">Your Balance</div>
